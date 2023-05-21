@@ -1,39 +1,39 @@
-const container = document.getElementById("container"); // Getting the container element
-const search = document.getElementById("button"); // Getting the search button element
-const weatherBox = document.getElementById("weather-box"); // Getting the weather box element
-const weatherDetails = document.getElementById("weather-details"); // Getting the weather details element
-const error404 = document.getElementById("not-found"); // Getting the error message element
+const container = document.getElementById("container"); // Ottenere l'elemento container
+const search = document.getElementById("button"); // Ottenere l'elemento button
+const weatherBox = document.getElementById("weather-box"); // Ottenere l'elemento weather-box
+const weatherDetails = document.getElementById("weather-details"); // Ottenere l'elemento weather-details
+const error404 = document.getElementById("not-found"); // Ottenere l'elemento not-found
 
 search.addEventListener('click', () => {
     const APIKey = '<INSERT_YOUR_API_KEY>'; // OpenWeatherMap API Key
-    const city = document.getElementById("input").value; // Getting the input value
+    const city = document.getElementById("input").value; // Ottenere il valore dell'input
 
-    if (city === '') // If the input is empty
+    if (city === '') // Se l'input è vuoto
         return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`) // Fetching data from OpenWeatherMap API
-        .then(response => response.json()) // Converting the response to JSON
-        .then(json => { // Displaying the data
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`) // Prendere i dati da OpenWeatherMap API
+        .then(response => response.json()) // Convertire la risposta in JSON
+        .then(json => { // Visualizzazione dei dati
 
-            if (json.cod === '404') { // If the city is not found
-                container.style.height = '400px'; // Reducing the height of the container
-                weatherBox.style.display = 'none'; // Hiding the weather box
-                weatherDetails.style.display = 'none'; // Hiding the weather details
-                error404.style.display = 'block'; // Displaying the error message
-                error404.classList.add('fadeIn'); // Adding the fade in animation
+            if (json.cod === '404') { // Se la città non viene trovata
+                container.style.height = '400px'; // Riduci l'altezza del container
+                weatherBox.style.display = 'none'; // Nascondere il weather box
+                weatherDetails.style.display = 'none'; // Nascondere i weather details
+                error404.style.display = 'block'; // Mostare il messaggio di errore
+                error404.classList.add('fadeIn'); // Aggiungere l'animazione fadeIn
                 return;
             }
 
-            error404.style.display = 'none'; // Hiding the error message
-            error404.classList.remove('fadeIn'); // Removing the fade in animation
+            error404.style.display = 'none'; // Nascondere il messaggio di errore
+            error404.classList.remove('fadeIn'); // Rimuovere l'animazione fadeIn
 
-            const image = document.getElementById("img"); // Getting the image element
-            const temperature = document.getElementById("temperature"); // Getting the temperature element
-            const description = document.getElementById("description"); // Getting the description element
-            const humidity = document.getElementById("spanH"); // Getting the humidity element
-            const wind = document.getElementById("spanW"); // Getting the wind element
+            const image = document.getElementById("img"); // Ottenere l'elemento img
+            const temperature = document.getElementById("temperature"); // Ottenere l'elemento temperature
+            const description = document.getElementById("description"); // Ottenere l'elemento description
+            const humidity = document.getElementById("spanH"); // Ottenere l'elemento humidity
+            const wind = document.getElementById("spanW"); // Ottener l'elemento wind
 
-            // Setting the image according to the weather
+            // Impostare l'immagine in base al tempo
             switch (json.weather[0].main) {
                 case 'Clear':
                     image.src = 'images/clear.png';
@@ -63,18 +63,18 @@ search.addEventListener('click', () => {
                     image.src = '';
             }
 
-            temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`; // Displaying the temperature
-            description.innerHTML = `${json.weather[0].description}`; // Displaying the description
-            humidity.innerHTML = `${json.main.humidity}`; // Displaying the humidity
-            wind.innerHTML = `${parseInt(json.wind.speed)}`; // Displaying the wind
+            temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`; // Mostare la temperatura
+            description.innerHTML = `${json.weather[0].description}`; // Mostare la descrizione
+            humidity.innerHTML = `${json.main.humidity}`; // Mostare l'umidità
+            wind.innerHTML = `${parseInt(json.wind.speed)}`; // Mostare la velocità del vento
 
-            weatherBox.style.display = ''; // Displaying the weather box
-            weatherDetails.style.display = ''; // Displaying the weather details
-            weatherBox.classList.add('fadeIn'); // Adding the fade in animation
-            weatherDetails.classList.add('fadeIn'); // Adding the fade in animation
-            container.style.height = '590px'; // Increasing the height of the container
+            weatherBox.style.display = ''; // Mostrare il weather box
+            weatherDetails.style.display = ''; // Mostrare i weather details
+            weatherBox.classList.add('fadeIn'); // Aggiungere l'animazione fadeIn
+            weatherDetails.classList.add('fadeIn'); // Aggiungere l'animazione fadeIn
+            container.style.height = '590px'; // Aumentare l'altezza del container
 
-           $.ajax({ // Sending the data to the database
+           $.ajax({ // Invio dei dati al database
                     url: 'api.php/history/insert_weather',
                     type: 'POST',
                     dataType: 'json',
