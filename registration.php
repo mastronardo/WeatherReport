@@ -71,7 +71,7 @@ if(isset($_SESSION['id'])){
                     </div>
                 <div class="col-12">
                     <br>
-                    <h6>Are you already registered? <a href="index.html">Click here!</a></h6>
+                    <h6>Are you already registered? <a href="index.php">Click here!</a></h6>
                 </div>
             </div>
         </div>
