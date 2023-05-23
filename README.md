@@ -101,17 +101,17 @@ Le operazioni HTTP seguono una mappatura con le operazioni CRUD:
 All'interno del file ```api.php``` sono presenti tutte le API implementate per l'interazione col database.
 
 Sulla tabella ```history``` si possono eseguire le seguenti operazioni:
-```POST```: ogni ricerca effettuata dall'utente viene salvata nella tabella
-```GET```: l'utente può visualizzare la cronologia delle ricerche effettuate
-```DELETE```: l'utente può cancellare una riga dalla tabella
+- ```POST```: ogni ricerca effettuata dall'utente viene salvata nella tabella
+- ```GET```: l'utente può visualizzare la cronologia delle ricerche effettuate
+- ```DELETE```: l'utente può cancellare una riga dalla tabella
 
 Sulla tabella ```Users``` si possono eseguire le seguenti operazioni:
-```POST```: operazione per effettuare il login
-```POST```: operazione per effettuare il logout
-```POST```: operazione per registrarsi
-```GET```: l'utente può visualizzare il nome, il cognome e la mail con le quali si è registrato
-```PUT```: l'utente può modificare la propria password
-```DELETE```: l'utente può eliminare il proprio account
+- ```POST```: operazione per effettuare il login
+- ```POST```: operazione per effettuare il logout
+- ```POST```: operazione per registrarsi
+- ```GET```: l'utente può visualizzare il nome, il cognome e la mail con le quali si è registrato
+- ```PUT```: l'utente può modificare la propria password
+- ```DELETE```: l'utente può eliminare il proprio account
 
 Un esempio è l'utilizzo di una richiesta GET ad un URI ```https://weatherreport.altervista.org/api.php/history/view_weather``` per comunicare al server che vogliamo operare sulla risorsa _history_ (che equivale alla tabella della cronologia nel database) e che si vuole effettuare una _lettura_ (una ```SELECT```), avvalorato dalla richiesta _GET_ e dell'ulteriore parte ```view_weather``` presente nell'URI.
 
