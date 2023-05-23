@@ -17,6 +17,7 @@ RewriteRule .* https://weatherreport.altervista.org%{REQUEST_URI} [L,R=301]
 ```
 
 Weather Report si appoggia sulle API di [**OpenWeatherMap**](https://openweathermap.org/) per ottenere le migliori previsioni meteo.
+Per potere accedere a questi dati è necessario inviare una richiesta HTTP alle API sopra citate, specificando come parametro l'API Key ricevuta in fase di registrazione nel loro sito ufficiale. Nel file ```index.js``` andiamo ad eseguire questa operazione.
 
 ---
 
@@ -97,14 +98,75 @@ Le operazioni HTTP seguono una mappatura con le operazioni CRUD:
 
 
 ## API implementate per il sito
+All'interno del file ```api.php``` sono presenti tutte le API implementate per l'interazione col database.
 
+Sulla tabella ```history``` si possono eseguire le seguenti operazioni:
+```POST```: ogni ricerca effettuata dall'utente viene salvata nella tabella
+```GET```: l'utente può visualizzare la cronologia delle ricerche effettuate
+```DELETE```: l'utente può cancellare una riga dalla tabella
+
+Sulla tabella ```Users``` si possono eseguire le seguenti operazioni:
+```POST```: operazione per effettuare il login
+```POST```: operazione per effettuare il logout
+```POST```: operazione per registrarsi
+```GET```: l'utente può visualizzare il nome, il cognome e la mail con le quali si è registrato
+```PUT```: l'utente può modificare la propria password
+```DELETE```: l'utente può eliminare il proprio account
+
+Un esempio è l'utilizzo di una richiesta GET ad un URI ```https://weatherreport.altervista.org/api.php/history/view_weather``` per comunicare al server che vogliamo operare sulla risorsa _history_ (che equivale alla tabella della cronologia nel database) e che si vuole effettuare una _lettura_ (una ```SELECT```), avvalorato dalla richiesta _GET_ e dell'ulteriore parte ```view_weather``` presente nell'URI.
 
 ---
 
 # Front end
+Il front end è stato realizzato con un insieme di componenti CSS (Cascading Style Sheets) per ottenere un design _ben strutturato_ e _responsive_, fornendo una esperienza utente ottimale e gradevole.
+
+- Per le pagine di _Login_ e _Registrazione_ è stato utilizzato il CSS offerto da **AdminLTE**;
+- Per la pagina di _Home_ è stato realizzato un CSS personalizzato;
+- Per le pagine dell'_Utente_ e della _Cronologia_ è stato utilizzato non solo un CSS personalizzato, ma anche quello offerto da [**AdminLTE**](https://adminlte.io/) e [**Bootstrap**](https://getbootstrap.com/).
+
+Per effettuare richieste al server ed elaborare i dati ottenuti aggiornando dinamicamente la pagina web senza dover ricaricare l’intera pagina è stato utilizzato **jQuery**.
+jQuery è una libreria JavaScript cross-browser veloce, versatile ed estensibile. L'API di jQuery consente di gestire con semplicità delle attività che risulterebbero lunghe o complesse in JavaScript. Inoltre, jQuery semplifica eventi come le chiamate AJAX (_Asynchronous JavaScript and XML_) e la manipolazione del DOM (_Document Object Model_).
+
 ## Pagina di Login e di Registrazione
+Per poter accedere ai servizi di **Weather Report** è necessario essere registrati ed effttuare il login.
+
+![[login.png]]
+
+Non sei registrato? Farlo è estramamente semplice!
+![[registration.png]]
+
+
 ## Pagina Home
-## Pagina dell'Utene
+Dopo il login si viene reinderizzati alla Home, costituita da diversi elementi:
+- il box dove scrivere la località della quale ci interessa il mete;
+- l'icona _utente_ che reinderizza alla pagina Utente;
+- l'icona _cronologia_ che reinderizza alla pagina Cronologia;
+- l'icona di _logout_ che reinderizza alla pagina di login se la richiesta è andata a buon fine;
+- l'icona di _GitHub_ che reinderizza alla repository del progetto.
+
+![[home.png]]
+
+Se avete inserito una località (esistente) nel box e si preme la lente di ingradimento... ecco a Voi il risultato!
+
+![[home-meteo.png]]
+
+## Pagina dell'Utente
+La pagina dell'Utente è costituita da tre elementi:
+- l'icona di una _casa_ che reinderizza alla pagina Home;
+- l'icona di _GitHub_ che reinderizza alla repository del progetto;
+- un _container_ contenente:
+  1) nome, cognome e mail usate durante la fase di registrazione;
+  2) uno spazio apposito per aggiorna la propria password;
+  3) uno spazio apposito per eliminare il proprio account.
+
+![[user.png]]
+
 ## Pagina della Cronologia
+La pagina della Cronologia è costituita da tre elementi:
+- l'icona di una _casa_ che reinderizza alla pagina Home;
+- l'icona di _GitHub_ che reinderizza alla repository del progetto;
+- una _tabella_ contenente:
+  1) le informazioni riguardanti le ricerche fatte dall'utente;
+  2) un bottone per cancellare una ricerca dalla tabella.
 
-
+![[history.png]]
