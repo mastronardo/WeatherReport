@@ -130,10 +130,10 @@ jQuery è una libreria JavaScript cross-browser veloce, versatile ed estensibile
 ## Pagina di Login e di Registrazione
 Per poter accedere ai servizi di **Weather Report** è necessario essere registrati ed effttuare il login.
 
-![[login.png]]
+![[docs/login.png]]
 
 Non sei registrato? Farlo è estramamente semplice!
-![[registration.png]]
+![[docs/registration.png]]
 
 
 ## Pagina Home
@@ -144,11 +144,11 @@ Dopo il login si viene reinderizzati alla Home, costituita da diversi elementi:
 - l'icona di _logout_ che reinderizza alla pagina di login se la richiesta è andata a buon fine;
 - l'icona di _GitHub_ che reinderizza alla repository del progetto.
 
-![[home.png]]
+![[docs/home.png]]
 
 Se avete inserito una località (esistente) nel box e si preme la lente di ingradimento... ecco a Voi il risultato!
 
-![[home-meteo.png]]
+![[docs/home-meteo.png]]
 
 ## Pagina dell'Utente
 La pagina dell'Utente è costituita da tre elementi:
@@ -159,7 +159,7 @@ La pagina dell'Utente è costituita da tre elementi:
   2) uno spazio apposito per aggiorna la propria password;
   3) uno spazio apposito per eliminare il proprio account.
 
-![[user.png]]
+![[docs/user.png]]
 
 ## Pagina della Cronologia
 La pagina della Cronologia è costituita da tre elementi:
@@ -169,4 +169,4 @@ La pagina della Cronologia è costituita da tre elementi:
   1) le informazioni riguardanti le ricerche fatte dall'utente;
   2) un bottone per cancellare una ricerca dalla tabella.
 
-![[history.png]]
+![[docs/history.png]]
