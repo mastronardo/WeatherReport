@@ -130,25 +130,34 @@ jQuery è una libreria JavaScript cross-browser veloce, versatile ed estensibile
 ## Pagina di Login e di Registrazione
 Per poter accedere ai servizi di **Weather Report** è necessario essere registrati ed effttuare il login.
 
-![[docs/login.png]]
+<p align="center">
+  <img src="docs/login.png">
+</p>
 
 Non sei registrato? Farlo è estramamente semplice!
-![[docs/registration.png]]
+
+<p align="center">
+  <img src="docs/registration.png">
+</p>
 
 
 ## Pagina Home
 Dopo il login si viene reinderizzati alla Home, costituita da diversi elementi:
-- il box dove scrivere la località della quale ci interessa il mete;
+- il box dove scrivere la località della quale ci interessa il meteo;
 - l'icona _utente_ che reinderizza alla pagina Utente;
 - l'icona _cronologia_ che reinderizza alla pagina Cronologia;
 - l'icona di _logout_ che reinderizza alla pagina di login se la richiesta è andata a buon fine;
 - l'icona di _GitHub_ che reinderizza alla repository del progetto.
 
-![[docs/home.png]]
+<p align="center">
+  <img src="docs/home.png">
+</p>
 
 Se avete inserito una località (esistente) nel box e si preme la lente di ingradimento... ecco a Voi il risultato!
 
-![[docs/home-meteo.png]]
+<p align="center">
+  <img src="docs/home-meteo.png">
+</p>
 
 ## Pagina dell'Utente
 La pagina dell'Utente è costituita da tre elementi:
@@ -159,7 +168,9 @@ La pagina dell'Utente è costituita da tre elementi:
   2) uno spazio apposito per aggiorna la propria password;
   3) uno spazio apposito per eliminare il proprio account.
 
-![[docs/user.png]]
+<p align="center">
+  <img src="docs/user.png">
+</p>
 
 ## Pagina della Cronologia
 La pagina della Cronologia è costituita da tre elementi:
@@ -169,4 +180,6 @@ La pagina della Cronologia è costituita da tre elementi:
   1) le informazioni riguardanti le ricerche fatte dall'utente;
   2) un bottone per cancellare una ricerca dalla tabella.
 
-![[docs/history.png]]
+<p align="center">
+  <img src="docs/history.png">
+</p>
